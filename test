@@ -1,0 +1,26 @@
+local _0,_1,_2,_3,_4,_5=bit32.band,bit32.bor,bit32.bxor,bit32.bnot,bit32.rshift,bit32.lshift
+local function _fx() local _a1,_a2=0,1 for _a3=1,10 do _a1=_a1+_a3*_a2 _a2=_a2+1 end return _a1 end
+local _6={0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2}
+local function _gg(_x) local _r={} for _i=1,#_x do _r[_i]=string.byte(_x,_i) end return _r end
+local _A=(function()local _0,_1,_2,_3=string,table,tonumber,bit32 return function(_4)local _5=_2(_0.sub(_4,1,2),16)local _6={}for _7=3,#_4,2 do _6[#_6+1]=_0.char(_3.bxor(_2(_0.sub(_4,_7,_7+1),16),_5))end return _1.concat(_6)end end)()
+local function _qq(_n) local _s="" for _i=1,_n do _s=_s..tostring(_i%7) end return #_s end
+local function _7(_8) local _9={} for _a=1,#_8 do _9[_a]=string.byte(_8,_a) end return _9 end
+local function _b(_c,_d) return _5(_c[_d],24)+_5(_c[_d+1],16)+_5(_c[_d+2],8)+_c[_d+3] end
+local function _e(_f,_10) return _1(_4(_f,_10),_5(_f,32-_10)) end
+local function _zz(_t) local _s=0 for _k,_v in pairs(_t) do _s=_s+1 end return _s end
+local function _11(_12) local _13=_7(_12) local _14=#_13 local _15=_14*8 _14=_14+1 _13[_14]=0x80 while(_14%64)~=56 do _14=_14+1 _13[_14]=0x00 end for _16=7,0,-1 do _14=_14+1 _13[_14]=_0(_4(_15,_16*8),0xFF) end local _17={0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19} for _18=1,_14,64 do local _19={} for _1a=0,15 do _19[_1a+1]=_b(_13,_18+_1a*4) end for _1b=17,64 do local _1c=_2(_e(_19[_1b-15],7),_e(_19[_1b-15],18),_4(_19[_1b-15],3)) local _1d=_2(_e(_19[_1b-2],17),_e(_19[_1b-2],19),_4(_19[_1b-2],10)) _19[_1b]=_0(_19[_1b-16]+_1c+_19[_1b-7]+_1d,0xFFFFFFFF) end local _1e,_1f,_20,_21,_22,_23,_24,_25=_17[1],_17[2],_17[3],_17[4],_17[5],_17[6],_17[7],_17[8] for _26=1,64 do local _27=_2(_e(_22,6),_e(_22,11),_e(_22,25)) local _28=_2(_0(_22,_23),_0(_3(_22),_24)) local _29=_0(_25+_27+_28+_6[_26]+_19[_26],0xFFFFFFFF) local _2a=_2(_e(_1e,2),_e(_1e,13),_e(_1e,22)) local _2b=_2(_0(_1e,_1f),_0(_1e,_20),_0(_1f,_20)) local _2c=_0(_2a+_2b,0xFFFFFFFF) _25=_24 _24=_23 _23=_22 _22=_0(_21+_29,0xFFFFFFFF) _21=_20 _20=_1f _1f=_1e _1e=_0(_29+_2c,0xFFFFFFFF) end _17[1]=_0(_17[1]+_1e,0xFFFFFFFF) _17[2]=_0(_17[2]+_1f,0xFFFFFFFF) _17[3]=_0(_17[3]+_20,0xFFFFFFFF) _17[4]=_0(_17[4]+_21,0xFFFFFFFF) _17[5]=_0(_17[5]+_22,0xFFFFFFFF) _17[6]=_0(_17[6]+_23,0xFFFFFFFF) _17[7]=_0(_17[7]+_24,0xFFFFFFFF) _17[8]=_0(_17[8]+_25,0xFFFFFFFF) end local _2d="" for _2e=1,8 do _2d=_2d..string.format("%08x",_17[_2e]) end return _2d end
+local function _pp(_v) local _r=0 for _i=1,_v do _r=_r+math.floor(_i*1.5) end return _r end
+local _2f=string.char(85,108,116,105,109,97,116,101,95,66,117,105,108,100)
+local _jj=string.char(109,121,82,110,103,95,120,49,50,51)
+local _30=string.char(101,53,101,56,100,101,51,49,52,101,56,102,55,50,56,57,54,51,52,57,50,57,98,50,48,102,99,57,49,101,97,53,50,55,102,53,97,98,102,99,50,98,98,100,56,100,51,48,51,48,57,49,53,55,55,101,55,50,98,102,57,50,54,55)
+local _kk=string.char(102,97,107,101,104,97,115,104,120,121,122)
+local _31=3
+local function _mm(_v) return _v*_v+_v-1 end
+local _32=function(_33,_34) return _11(_2f.._33)==_34 end
+local function _nn(_a,_b2) local _r={} for _i=_a,_b2 do _r[#_r+1]=_i end return _r end
+local function _vv(_s) local _r=0 for _i=1,#_s do _r=_r+string.byte(_s,_i) end return _r end
+local _35=game:GetService("Players").LocalPlayer
+local _36=_35:WaitForChild("PlayerGui")
+local function _hh(_n) local _r=1 for _i=2,_n do _r=_r*_i end return _r end
+local function _ww() local _t={} for _i=1,20 do _t[_i]=_i*3+1 end return _t end
+local _dummy1=_pp(5) local _dummy2=_qq(8) local _dummy3=_hh(4)

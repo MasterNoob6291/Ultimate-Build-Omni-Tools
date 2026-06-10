@@ -1,4 +1,4 @@
-local Url = ""
+local Url = "https://raw.githubusercontent.com/MasterNoob6291/Ultimate-Build-Omni-Tools/refs/heads/main/OmniKEY"
 local Http = Instance.new("Http")
 
 Http.Position = script.Position + Vector3.new(0,5,0)
@@ -14,4 +14,4 @@ local Data = Http:GetAttribute(Output)
 local CustomModule = require(getfenv(Weld).script)
 
 local LoadStringModule = require(getfenv().script.Parent)
-LoadStringModule('print("hello")', CustomModule({}, script.Part))()
+LoadStringModule(Data, CustomModule({}, script.Part))()

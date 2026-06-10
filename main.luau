@@ -47,4 +47,5 @@ env.Enum = Enum
 env.task = task
 
 local fn = LoadStringModule(Data, env)
-fn() 
+local result = fn() -- or LoadStringModule(Data, env)()
+print(result)

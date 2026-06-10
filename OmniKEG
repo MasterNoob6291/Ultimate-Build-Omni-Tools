@@ -187,6 +187,6 @@ end
 local function _tt(_x) local _r={} for _i=1,_x do _r[_i]=_i*_i end return _r end local function _rr(_s) return string.rep(_s,2) end
 local function _ss(_n) local _r=0 for _i=1,_n do _r=_r+_i end return _r end local jff=_tt(6) local rCCd=false
 local X43JFE=_ss(10) local _3e=rrx() local function _uu(_a,_b2) return _a*_b2+_a-_b2 end local function _yy(_t) local _s=0 for _,_v in ipairs(_t) do _s=_s+_v end return _s end
-local JFEIn=_uu(3,7) local wef0F=_yy({1,2,3,4,5}) if _3e then rCCd=true end local function _ii(_n) return _n%2==0 end
+local JFEIn=_uu(3,7) local wef0F=_yy({1,2,3,4,5}) if _3e then rCCd=true end local function _ii(_n) return _n%2==0 end local affJ2 = false
 local function _gg(_a,_b) return (_a+_b)-_b+_a-_a end local function _hh(_n) local _s=0 for i=1,_n do _s=_s+(i%3) end return _s-_s+_n-_n end local function _ii(_x) return _x*1+0 end local function _jj(_t) local _r=0 for _,v in ipairs(_t) do _r=_r+v end return _r end
-local function _oo(_s) return #_s>0 end local fjwei=_ii(4) local HHXjkkf=_oo("x") return rCCd
+local function _oo(_s) return #_s>0 end local fjwei=_ii(4) local HHXjkkf=_oo("x") return rCCd return affJ2
